@@ -1,0 +1,35 @@
+{
+  "name": "drupal-entity-crud",
+  "version": "0.0.1",
+  "description": "Package to create, read, update and delete drupal 7 entities",
+  "repository": "git@github.com:rawpixel1/drupal-entity-crud.git",
+  "author": "rawpixel<contact@rawpixel.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "babel -s inline -d lib -w src",
+    "build": "babel -s inline -d lib src",
+    "prepublish": "npm test && npm run build",
+    "test": "mocha --require @babel/register ./test"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "mocha": "^6.1.4",
+    "prettier": "^1.17.0"
+  }
+}
