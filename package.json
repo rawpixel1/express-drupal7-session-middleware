@@ -1,8 +1,8 @@
 {
-  "name": "rawpixel-npm-lib",
+  "name": "express-drupal7-session-middleware",
   "version": "0.0.1",
-  "description": "Base module to create shared node.js npm libraries compatible with ES6+",
-  "repository": "git@github.com:rawpixel1/rawpixel-npm-lib.git",
+  "description": "Express middleware to retrieve a user session from a drupal 7 cookie",
+  "repository": "git@github.com:rawpixel1/express-drupal7-session-middleware.git",
   "author": "rawpixel<contact@rawpixel.com>",
   "license": "MIT",
   "private": false,
@@ -14,7 +14,8 @@
     "test": "mocha --require @babel/register ./test"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"
+    "@babel/polyfill": "^7.4.4",
+    "php-unserialize": "0.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
