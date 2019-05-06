@@ -1,8 +1,8 @@
 {
   "name": "drupal-entity-crud",
   "version": "0.0.1",
-  "description": "Package to create, read, update and delete drupal 7 entities",
-  "repository": "git@github.com:rawpixel1/drupal-entity-crud.git",
+  "description": "Base module to create shared node.js npm libraries compatible with ES6+",
+  "repository": "git@github.com:rawpixel1/rawpixel-npm-lib.git",
   "author": "rawpixel<contact@rawpixel.com>",
   "license": "MIT",
   "private": false,
