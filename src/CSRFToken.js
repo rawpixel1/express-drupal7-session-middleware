@@ -16,7 +16,7 @@ export default async function getCSRFToken(db, sessionId, hashSalt, value) {
       console.log(error);
       return false;
     }
-    if (!privateKeyResults[0]) {
+    if (!privateKeyResults || !privateKeyResults[0]) {
       return false;
     }
     try {
