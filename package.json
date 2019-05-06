@@ -1,5 +1,5 @@
 {
-  "name": "drupal-entity-crud",
+  "name": "rawpixel-npm-lib",
   "version": "0.0.1",
   "description": "Base module to create shared node.js npm libraries compatible with ES6+",
   "repository": "git@github.com:rawpixel1/rawpixel-npm-lib.git",
