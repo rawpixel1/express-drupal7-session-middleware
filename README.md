@@ -1,2 +1,1 @@
-
-Ready to copy configuration to create es6 npm module, with prettier and chai/mocha unit test.
+Express middleware to retrieve a user session from a drupal 7 cookie
