@@ -1,9 +1,9 @@
 {
   "name": "express-drupal7-session-middleware",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Express middleware to retrieve a user session from a drupal 7 cookie",
   "repository": "git@github.com:rawpixel1/express-drupal7-session-middleware.git",
-  "author": "rawpixel<contact@rawpixel.com>",
+  "author": "rawpixel<vincent@rawpixel.com>",
   "license": "MIT",
   "private": false,
   "main": "lib/index.js",
@@ -30,7 +30,12 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "knex": "^0.17.6",
     "mocha": "^6.1.4",
     "prettier": "^1.17.0"
+  },
+  "peerDependencies": {
+    "cookie-parser": "^1.4.4",
+    "knex": "^0.17.6"
   }
 }
