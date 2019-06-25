@@ -16,18 +16,18 @@ export default async function getCSRFToken(knex, sessionId, hashSalt, value) {
     return false;
   }
   if (!privateKey.length) {
-    let privateKeyResults = [];
+    let results = [];
     try {
-      privateKeyResults = await knex.raw('SELECT value FROM variable WHERE name = ?', ['drupal_private_key']);
+      results = await knex.raw('SELECT value FROM variable WHERE name = ?', ['drupal_private_key']);
     } catch (error) {
       console.log(error);
       return false;
     }
-    if (!privateKeyResults || !privateKeyResults[0]) {
+    if (!results || !results[0] || !results[0][0]) {
       return false;
     }
     try {
-      privateKey = PHPUnserialize.unserialize(privateKeyResults[0].value);
+      privateKey = PHPUnserialize.unserialize(results[0][0].value);
     } catch (error) {
       console.log(error);
       return false;

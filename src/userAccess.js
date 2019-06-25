@@ -19,7 +19,7 @@ export default async function userAccess(knex, permission, userId) {
     console.log(error);
     return false;
   }
-  if (results && results[0] && results[0].access) {
+  if (results && results[0] && results[0][0] && results[0][0].access) {
     return true;
   }
 
