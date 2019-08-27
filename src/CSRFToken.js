@@ -1,6 +1,6 @@
 import PHPUnserialize from 'php-unserialize';
-import crypto from 'crypto';
 import KnexInstance from 'knex';
+import { createDrupalToken } from './utils';
 
 let privateKey = '';
 
@@ -37,16 +37,5 @@ export default async function getCSRFToken(knex, sessionId, hashSalt, value) {
     }
   }
 
-  const key = `${sessionId}${privateKey}${hashSalt}`;
-
-  const token = crypto
-    .createHmac('sha256', key)
-    .update(value)
-    .digest()
-    .toString('base64');
-
-  return token
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=/g, '');
+  return createDrupalToken(sessionId, privateKey, hashSalt, value);
 }
