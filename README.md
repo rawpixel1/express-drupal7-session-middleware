@@ -1,6 +1,9 @@
 Express middleware to retrieve a user session from a drupal 7 cookie
 
 # Install
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/rawpixel1/express-drupal7-session-middleware.svg)](https://greenkeeper.io/)
+
 `npm i express-drupal7-session-middleware`
 
 You need to use knex query builder to use this package.
