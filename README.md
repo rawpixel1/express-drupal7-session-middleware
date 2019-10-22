@@ -1,8 +1,10 @@
 Express middleware to retrieve a user session from a drupal 7 cookie
 
-# Install
+# Express middleware for Drupal 7 authentication
 
 [![CircleCI](https://circleci.com/gh/rawpixel1/express-drupal7-session-middleware.svg?style=svg)](https://circleci.com/gh/rawpixel1/express-drupal7-session-middleware)
+
+## Install
 
 `npm i express-drupal7-session-middleware`
 
@@ -12,7 +14,7 @@ You need to use knex query builder to use this package.
 
 See knex documentation on how to create a new instance.
 
-# Usage
+## Usage
 
 In your server definition
 ```javascript
