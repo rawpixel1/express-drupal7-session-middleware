@@ -2,7 +2,7 @@ Express middleware to retrieve a user session from a drupal 7 cookie
 
 # Express middleware for Drupal 7 authentication
 
-[![CircleCI](https://circleci.com/gh/rawpixel1/express-drupal7-session-middleware.svg?style=svg)](https://circleci.com/gh/rawpixel1/express-drupal7-session-middleware)
+[![CircleCI](https://circleci.com/gh/rawpixel1/express-drupal7-session-middleware.svg?style=svg)](https://circleci.com/gh/rawpixel1/express-drupal7-session-middleware) [![Greenkeeper badge](https://badges.greenkeeper.io/rawpixel1/express-drupal7-session-middleware.svg)](https://greenkeeper.io/)
 
 ## Install
 
