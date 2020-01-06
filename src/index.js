@@ -1,3 +1,5 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import middleware from './middleware';
 import CSRFToken from './CSRFToken';
 import userAccess from './userAccess';
