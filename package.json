@@ -36,6 +36,6 @@
   },
   "peerDependencies": {
     "cookie-parser": "^1.4.4",
-    "knex": "^0.19.5"
+    "knex": "^0.20.0"
   }
 }
