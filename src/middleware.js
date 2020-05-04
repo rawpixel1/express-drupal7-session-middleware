@@ -30,12 +30,12 @@ const middleware = (hostname, knex) => async (req, res, next) => {
   try {
     results = await knex.raw(query, [session]);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 
   // User session is valid, attach logged user id.
   if (results && results[0] && results[0][0] && results[0][0].uid) {
-    req.userId = results[0][0].uid;
+    req.userId = parseInt(results[0][0].uid, 10) > 0 ? parseInt(results[0][0].uid, 10) : 0;
     req.cookieSessionText = `${cookieSession}=${session}`;
     req.sessionId = session;
   }
