@@ -7,7 +7,7 @@ import userAccess from './userAccess';
 const expressDrupal7 = {
   drupalExpressMiddleware: middleware,
   drupalCSRFToken: CSRFToken,
-  drupalUserAccess: userAccess
+  drupalUserAccess: userAccess,
 };
 
 export default expressDrupal7;

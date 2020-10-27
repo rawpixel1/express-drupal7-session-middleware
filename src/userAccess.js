@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import KnexInstance from 'knex';
 import NodeCache from 'node-cache';
 
