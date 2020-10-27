@@ -6,6 +6,8 @@ const localCache = new NodeCache({
   deleteOnExpire: true
 });
 
+const authenticatedUserRid = 2;
+
 /**
  * Similar to drupal user_access function.
  *
@@ -23,6 +25,24 @@ export default async function userAccess(knex, permission, userId, cache = true)
   let access = localCache.get(cacheKey);
   if (typeof access !== 'undefined') {
     return access;
+  }
+
+  // Check if permission is granted to authenticated user role
+  if (userId) {
+    try {
+      results = await knex('role_permission')
+        .select('rid')
+        .where('rid', authenticatedUserRid)
+        .where('permission', permission)
+    } catch (error) {
+      console.log(error);
+      // Do not cache on error.
+      return false;
+    }
+
+    if (results && results[0] && results[0].rid) {
+      return true;
+    }
   }
 
   try {
