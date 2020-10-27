@@ -1,6 +1,6 @@
 {
   "name": "express-drupal7-session-middleware",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "description": "Express middleware to retrieve a user session from a drupal 7 cookie",
   "repository": "git@github.com:rawpixel1/express-drupal7-session-middleware.git",
   "author": "rawpixel<vincent@rawpixel.com>",
