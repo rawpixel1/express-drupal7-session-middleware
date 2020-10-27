@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+// eslint-disable-next-line
 import KnexInstance from 'knex';
 
 /**
@@ -10,11 +11,7 @@ const middleware = (hostname, knex) => async (req, res, next) => {
   req.sessionId = false;
   req.userId = 0;
   const cookiePrefix = 'SSESS';
-  const cookieSuffix = crypto
-    .createHash('sha256')
-    .update(hostname, 'utf8')
-    .digest('hex')
-    .substr(0, 32);
+  const cookieSuffix = crypto.createHash('sha256').update(hostname, 'utf8').digest('hex').substr(0, 32);
   let cookieSession = `${cookiePrefix}${cookieSuffix}`;
   req.cookieSessionText = '';
   if (!req.cookies[cookieSession]) {

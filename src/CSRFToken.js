@@ -1,5 +1,6 @@
-import PHPUnserialize from 'php-unserialize';
+// eslint-disable-next-line
 import KnexInstance from 'knex';
+import PHPUnserialize from 'php-unserialize';
 import { createDrupalToken } from './utils';
 
 let privateKey = '';
