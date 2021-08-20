@@ -20,7 +20,7 @@ module.exports = async (hostname, knex, req) => {
     return;
   }
   const session = req.cookies[cookieSession];
-  const query = 'SELECT s.uid FROM sessions s WHERE s.sid = ?';
+  const query = 'SELECT s.uid, s.timestamp FROM sessions s WHERE s.sid = ?';
   let results = [];
   try {
     results = await knex.raw(query, [session]);
@@ -31,6 +31,7 @@ module.exports = async (hostname, knex, req) => {
   // User session is valid, attach logged user id.
   if (results && results[0] && results[0][0] && results[0][0].uid) {
     req.userId = parseInt(results[0][0].uid, 10) > 0 ? parseInt(results[0][0].uid, 10) : 0;
+    req.sessionTimestamp = parseInt(results[0][0].timestamp, 10) > 0 ? parseInt(results[0][0].timestamp, 10) : 0;
     req.cookieSessionText = `${cookieSession}=${session}`;
     req.sessionId = session;
   }
