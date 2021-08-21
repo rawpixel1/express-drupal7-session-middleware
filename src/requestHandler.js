@@ -7,7 +7,7 @@ import crypto from 'crypto';
  * @param {import('knex').Knex} knex - An instance of knex connected to the drupal database.
  * @param {Object} req - a node http request object, must have req.cookies parsed object.
  */
-module.exports = async (hostname, { backend = 'knex', ...client }, req) => {
+module.exports = async (hostname, { backend = 'knex', redisCidPrefix = 'session_', ...client }, req) => {
   const cookiePrefix = 'SSESS';
   const cookieSuffix = crypto.createHash('sha256').update(hostname, 'utf8').digest('hex').substr(0, 32);
   let cookieSession = `${cookiePrefix}${cookieSuffix}`;
@@ -42,7 +42,7 @@ module.exports = async (hostname, { backend = 'knex', ...client }, req) => {
       req.sessionId = session;
     }
   } else if (backend === 'redis') {
-    client.get('key', (data) => {
+    client.get(`${redisCidPrefix}${session}`, (data) => {
       console.log(data);
     });
   }
