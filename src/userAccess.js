@@ -18,14 +18,21 @@ const authenticatedUserRid = 2;
  *
  * @returns {boolean}
  */
-export default async function userAccess(knex, permission, userId, cache = true) {
+export default async function userAccess(knex, permission, userId, cache = 60 * 30) {
   let results = [];
 
   const cacheKey = `${userId}__${permission}`;
 
-  let access = localCache.get(cacheKey);
-  if (typeof access !== 'undefined') {
-    return access;
+  let access;
+  if (cache) {
+    try {
+      access = localCache.get(cacheKey);
+    } catch (error) {
+      console.log(error);
+    }
+    if (typeof access !== 'undefined') {
+      return access;
+    }
   }
 
   access = false;
@@ -63,7 +70,13 @@ export default async function userAccess(knex, permission, userId, cache = true)
   }
 
   // Set 30 minutes cache:
-  localCache.set(cacheKey, access, 60 * 30);
+  if (cache) {
+    try {
+      localCache.set(cacheKey, access, cache);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return access;
 }
