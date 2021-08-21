@@ -42,7 +42,7 @@ module.exports = async (hostname, { backend = 'knex', redisCidPrefix = 'session_
       req.sessionId = session;
     }
   } else if (backend === 'redis') {
-    client.get(`${redisCidPrefix}${session}`, (data) => {
+    client.redis.get(`${redisCidPrefix}${session}`, (data) => {
       console.log(data);
     });
   }

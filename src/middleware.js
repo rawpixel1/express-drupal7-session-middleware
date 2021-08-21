@@ -4,7 +4,7 @@ import requestHandler from './requestHandler';
  * @typedef {Object} DrupalSessionMiddlewareOptions
  * @property {string} backend only redis or knex are supported.
  * @property {import('knex').Knex} [knex] initialized knex client.
- * @property {import('redis')} [redis] initialized redis client.
+ * @property {import('redis').RedisClient} [redis] initialized redis client.
  * @property {String} [redisCidPrefix='session_'] Redis CID prefix, default to `session_`.
  */
 
