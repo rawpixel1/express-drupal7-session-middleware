@@ -1,16 +1,20 @@
-// eslint-disable-next-line
-import KnexInstance from 'knex';
 import requestHandler from './requestHandler';
 
 /**
+ * @typedef {Object} DrupalSessionMiddlewareOptions
+ * @property {string} backend only redis or knex are supported.
+ * @property {import('knex').Knex} [knex] initialized knex client.
+ * @property {import('redis')} [redis] initialized redis client.
+ *
+ *
  * Return an express middleware that will populate req.userId with the loggedIn drupal user uid.
  * @param {string} hostname - The Drupal base_url.
- * @param {KnexInstance} knex - An instance of knex connected to the drupal database.
+ * @param {DrupalSessionMiddlewareOptions} options - Options
  */
-const middleware = (hostname, knex) => async (req, res, next) => {
+const middleware = (hostname, options) => async (req, res, next) => {
   req.sessionId = false;
   req.userId = 0;
-  await requestHandler(hostname, knex, req);
+  await requestHandler(hostname, options, req);
   next();
 };
 
