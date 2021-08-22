@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import PHPUnserialize from 'php-unserialize';
 
 /**
  * Return an express middleware that will populate req.userId with the loggedIn drupal user uid.
@@ -42,8 +43,19 @@ module.exports = async (hostname, { backend = 'knex', redisCidPrefix = 'session_
       req.sessionId = session;
     }
   } else if (backend === 'redis') {
-    client.redis.get(`${redisCidPrefix}${session}`, (data) => {
-      console.log(data);
+    client.redis.get(`${redisCidPrefix}${session}`, (err, data) => {
+      if (err) {
+        return;
+      }
+      try {
+        const result = PHPUnserialize.unserialize(data);
+        req.userId = parseInt(result.uid, 10) > 0 ? parseInt(result.uid, 10) : 0;
+        req.sessionTimestamp = Date.now() / 1000;
+        req.cookieSessionText = `${cookieSession}=${session}`;
+        req.sessionId = session;
+      } catch (error) {
+        console.log(error);
+      }
     });
   }
 };
