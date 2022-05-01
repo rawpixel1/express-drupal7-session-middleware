@@ -1,6 +1,6 @@
 {
   "name": "express-drupal7-session-middleware",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Express middleware to retrieve a user session from a drupal 7 cookie",
   "repository": "git@github.com:rawpixel1/express-drupal7-session-middleware.git",
   "author": "rawpixel<vincent@rawpixel.com>",
@@ -14,17 +14,17 @@
     "test": "mocha --require @babel/register ./test"
   },
   "dependencies": {
-    "core-js": "^3.9.1",
+    "core-js": "^3.22.3",
     "node-cache": "^5.1.2",
     "php-unserialize": "0.0.1",
-    "regenerator-runtime": "^0.13.7"
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/register": "^7.10.1",
-    "chai": "^4.2.0",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/register": "^7.17.7",
+    "chai": "^4.3.6",
     "eslint": "^7.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -32,12 +32,13 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
-    "knex": "^0.21.1",
+    "knex": "^2.0.0",
     "mocha": "^7.2.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "redis": "^3.1.2"
   },
   "peerDependencies": {
-    "cookie-parser": "^1.4.5",
-    "knex": "^0.95.1"
+    "cookie-parser": "^1.4.6",
+    "knex": "^2.0.0"
   }
 }
